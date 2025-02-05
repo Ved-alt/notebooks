@@ -1,0 +1,59 @@
+
+ollama pull llama2
+
+
+
+
+pip install ollama
+
+
+
+
+
+
+import ollama
+
+response = ollama.chat(
+    model="llama2",
+    messages=[{"role": "user", "content": "Why is the sky blue?"}]
+)
+print(response["message"]["content"])
+
+
+
+
+
+
+
+
+
+import ollama
+
+stream = ollama.chat(
+    model="llama2",
+    messages=[{"role": "user", "content": "Explain quantum mechanics in 2 sentences."}],
+    stream=True
+)
+
+for chunk in stream:
+    print(chunk["message"]["content"], end="", flush=True)
+
+
+
+
+
+
+
+
+
+    import requests
+
+response = requests.post(
+    "http://localhost:11434/api/generate",
+    json={
+        "model": "llama3.3",
+        "prompt": "Why is the sky blue?",
+        "stream": False
+    }
+)
+print(response.json()["response"])
