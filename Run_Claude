@@ -1,0 +1,36 @@
+
+import requests
+
+
+
+# Replace with your Anthropic API key
+
+api_key = "UR_API_KEY"
+
+
+
+# Construct your prompt
+
+prompt = "UR_PROMPT'"
+
+
+
+# Send request to the Claude API
+
+headers = {"Authorization": f"Bearer {UR_API_KEY}"}
+
+response = requests.post("https://api.anthropic.com/v1/complete", 
+
+                         headers=headers, 
+
+                         json={"prompt": prompt, "model": "claude-3"})
+
+
+
+# Access the generated text
+
+generated_text = response.json()["text"]
+
+
+
+print(generated_text) 
